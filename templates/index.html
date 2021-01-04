@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Airlines Prediction</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    
+    .navbar.navbar-inverse .navbar-header .navbar-brand {
+    display: inline-block;
+    text-align:center;
+    float: none;
+    vertical-align: top;
+  }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    .column{
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 800px; /* Should be removed. Only for demonstration */
+}
+body{
+  max-height: 600px; 
+  background-color: #95c9c2
+}
+#ip{
+  width: 400px;
+}
+label{
+  text-align: left;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+  .row.content {height:auto;} 
+}
+#result{
+  padding-top: 20px;
+    padding-bottom: 20px;
+	font-size: 25px;
+	color: black;
+}
+
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #000000;
+      color: white;
+      padding: 15px;
+    }
+    
+    
+  </style>
+</head>
+
+<header>
+<nav class="navbar navbar-inverse">
+  <div class="container text-center">
+      <div class="navbar-header  col-md-12">
+        <a class="navbar-brand text-center" style="color: white"> Airlines Customer Satisfaction Form </a>
+      </div>
+  </div>
+</nav>
+</header>
+ <form action="{{ url_for('predict')}}"method="post">
+<body class="d-flex flex-column">
+<div class="login">
+<div class="flex-grow-1 flex-shrink-0">
+ <div class="container text-center">   
+ <div class="row content">
+   <div class="column">  
+    <form action="#result">
+	
+		<div class="form-group">
+        <label >Age:
+        <input type="text" class="form-control" id="ip" name ="Age" placeholder="Actual Age of the passengers" required="required" ></label>
+      </div>
+	  
+	   <div class="form-group">
+        <label >Flight Distance(in KMS):
+          <input type="text" class="form-control" id="ip" name ="Flight Distance" placeholder="Flight distance of this journey"  required="required">
+          </label>
+      </div>
+	  
+	  <div class="form-group">
+        <label for="comfort">Seat Comfort (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="Seat comfort" placeholder="Satisfaction level of Seat Comfort" required="required"></label>
+      </div>
+	  
+	  <div class="form-group">
+        <label for="time">Departure/Arrival Time Convinient (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="Departure/Arrival time convenient" placeholder="Satisfaction level of Departure/Arrival Time Convinient" required="required"></label>
+      </div>
+	  
+	   <div class="form-group">
+        <label for="food">Food and Drink (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="Food and drink"placeholder="Satisfaction level of Food and Drink" required="required"></label>
+      </div>
+	  
+	  <div class="form-group">
+        <label for="Location">Gate Location (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="Gate location" placeholder="Satisfaction level of Gate Location" required="required"></label>
+      </div>
+	  
+	  <div class="form-group">
+        <label for="wifi">Inflight Wi-Fi Service (Rating from 0-5):
+          <input type="text" class="form-control" id="ip" name ="Inflight wifi service" placeholder="Satisfaction level of Infligt Wi-Fi Service" required="required"></label>
+      </div>
+	  
+	  <div class="form-group">
+        <label for="entertainment">Inflight Entertainment (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="Inflight entertainment" placeholder="Satisfaction level of Inflight Entertainment" required="required"></label>
+      </div>
+	   
+      <div class="form-group" >
+        <label for="Boarding">Online support (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="Online support" placeholder="Satisfaction level of Online support" required="required"></label>
+      </div>
+	  
+	  <div class="form-group">
+        <label for="booking">Ease of Online Booking (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="Ease of Online booking" placeholder="Satisfaction level of Online Booking" required="required"></label>
+      </div>
+	  
+	  <div class="form-group">
+        <label for="onboard">On-board Service (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="On-board service"placeholder="Satisfaction level of On-board Service" required="required"></label>
+      </div>
+	  
+	  <div class="form-group">
+        <label for="onboard">Leg-room Service (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="Leg room service" placeholder="Satisfaction level of Leg-room Service" required="required"></label>
+      </div>
+	  
+	  </div>
+	   <div class="column">
+	  
+	   <div class="form-group">
+        <label for="onboard">Baggage Handling (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="Baggage handling" placeholder="Satisfaction level of Baggage Handling" required="required"></label>
+      </div>
+	  
+	  <div class="form-group">
+        <label for="onboard">Check-in Service (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="Checkin service" placeholder="Satisfaction level of Check-in Service" required="required"></label>
+      </div>
+      
+	  <div class="form-group">
+        <label for="onboard">Cleanliness (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="Cleanliness" placeholder="Satisfaction level of Cleanliness" required="required"></label>
+      </div>
+	  
+	  <div class="form-group" >
+        <label for="Boarding">Online boarding (Rating from 0-5):
+        <input type="text" class="form-control" id="ip" name ="Online boarding" placeholder="Satisfaction level of Online boarding" required="required"></label>
+      </div>
+	  
+	  <div class="form-group">
+        <label for="onboard">Departure delay in Minutes:
+        <input type="text" class="form-control" id="ip" name ="Departure Delay in Minutes" placeholder="Minutes delayed when Departure" required="required"></label>
+      </div>
+	  
+      <div class="form-group">
+        <label for="onboard">Arrival delay in Minutes:
+        <input type="text" class="form-control" id="ip" name ="Arrival Delay in Minutes" placeholder="Minutes delayed when Arrival" required="required"></label>
+      </div>
+	  
+    <div class="form-group">
+        <label for="Gender">Gender [Male - 1, Female - 0]:
+        <input type="text" class="form-control" id="ip" name ="Gender" placeholder="Gender of the flight of passengers" required="required"></label>
+      </div>
+	  
+    <div class="form-group">
+        <label for="Age">Customer type [Loyal customer - 0, Disloyal customer - 1]:
+        <input type="text" class="form-control" id="ip" name ="Customer type" placeholder="The Customer Type" required="required"></label>
+      </div>
+      
+    <div class="form-group">
+        <label for="Travel">Type of Travel [Personal Travel - 1, Business Travel - 0]:
+        <input type="text" class="form-control" id="ip" name="Type of Travel" placeholder="Purpose of the flight of passengers" required="required"></label>
+      </div>
+    
+	<div class="form-group">
+        <label for="Class">Class [Economy class - 1,Business class - 0]:
+        <input type="text" class="form-control" id="ip" name ="Class" placeholder="Travel class in the plane of the passengers" required="required"></label>
+    </div>
+	
+	<div class="form-group">
+        <label for="Class">Class_Ecoplus [Economy_plus - 1, Business class - 0]:
+        <input type="text" class="form-control" id="ip" name ="Class_Ecoplus" placeholder="Travel class in the plane of the passengers" required="required"></label>
+    </div>
+     
+    
+	  
+	  
+ 
+      
+      
+            
+    </div>
+  
+</div>
+<div class="container text-center" id="submit" >
+      <button type="submit" class="btn btn-default" onsubmit="#result" style="margin-top: 100px;">Predict</button>
+    <div class="container col-md-12 text-center" id="result"> <b>{{prediction_text}}</b>
+	<b id="result"></b>
+     </div>
+</div>
+	 </form>
+</div>
+ 
+   </div>   
+   </div>
+</div>
+  </div>
+</div>
+</div>
+
+</body>
+ </form>
+  <footer class="py-4 bg-dark flex-shrink-0">
+    <div class="container text-center">
+      <b class="text" style="color: white">Designed by Sasi Chandra</b>
+    </div>
+  </footer>
+</html>
