@@ -18,13 +18,13 @@ def predict():
     prediction = model.predict(final_features)
 
     if prediction[0] ==1.0:
-        output ='Satified'
+        output ='Satisfied'
     else:
-        output = 'not Satified'
+        output = 'not Satisfied'
     
 
 
-    return render_template('index.html', prediction_text='**********Airlines Customer is  {}**********'.format(output))
+    return render_template('index.html', prediction_text='*************Airlines Customer is  {}*************'.format(output))
 
 
 if __name__ == "__main__":
