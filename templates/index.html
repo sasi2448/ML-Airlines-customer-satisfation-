@@ -18,7 +18,7 @@
   }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
+    .row.content {height: 750px}
     .column{
   float: left;
   width: 50%;
@@ -26,8 +26,11 @@
   height: 800px; /* Should be removed. Only for demonstration */
 }
 body{
-  max-height: 600px; 
-  background-color: #95c9c2
+min-height: 100%;
+   background-image: url("https://images.pexels.com/photos/1376889/pexels-photo-1376889.jpeg?cs=srgb&dl=pexels-disha-sheta-1376889.jpg&fm=jpg");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center center;
 }
 #ip{
   width: 400px;
@@ -36,11 +39,19 @@ label{
   text-align: left;
 }
 
+
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
+}
+
+.form-group{
+  padding: 5px;
+}
+select{
+  min-height: 40px;
 }
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
@@ -62,7 +73,7 @@ label{
     footer {
       background-color: #000000;
       color: white;
-      padding: 15px;
+      padding: 20px;
     }
     
     
@@ -82,137 +93,336 @@ label{
 <body class="d-flex flex-column">
 <div class="login">
 <div class="flex-grow-1 flex-shrink-0">
- <div class="container text-center">   
+ <div class="container text-center" id="form-body">   
  <div class="row content">
    <div class="column">  
     <form action="#result">
-	
 		<div class="form-group">
-        <label >Age:
+        <label >
         <input type="text" class="form-control" id="ip" name ="Age" placeholder="Actual Age of the passengers" required="required" ></label>
       </div>
 	  
 	   <div class="form-group">
-        <label >Flight Distance(in KMS):
+        <label >
           <input type="text" class="form-control" id="ip" name ="Flight Distance" placeholder="Flight distance of this journey"  required="required">
           </label>
       </div>
 	  
 	  <div class="form-group">
-        <label for="comfort">Seat Comfort (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="Seat comfort" placeholder="Satisfaction level of Seat Comfort" required="required"></label>
+        <label for="comfort">
+        <select class="form-control input100"  id="ip" name="Seat comfort" 
+        style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+        border: 2px solid #d9d9d9;" 
+        required="required" >
+    <option value="" disabled selected hidden>Select Satisfaction level of Seat Comfort</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        </select>
+        </label>
       </div>
 	  
 	  <div class="form-group">
-        <label for="time">Departure/Arrival Time Convinient (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="Departure/Arrival time convenient" placeholder="Satisfaction level of Departure/Arrival Time Convinient" required="required"></label>
-      </div>
+     <label for="time">
+      <select class="form-control input100" id="ip" 
+        name="Departure/Arrival time convenient" 
+        style="padding: 10px 5px;margin-top,margin-bottom: 15px; 
+        border: 2px solid #d9d9d9;"
+        required="required" >
+      <option value="" disabled selected hidden>Select Satisfaction level of Departure/Arrival Time Convinient
+      </option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      </select>
+     </label>
+    </div>
 	  
 	   <div class="form-group">
-        <label for="food">Food and Drink (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="Food and drink"placeholder="Satisfaction level of Food and Drink" required="required"></label>
+        <label for="food">
+        <select class="form-control input100"  id="ip" name="Food and drink" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+            <option value="" disabled selected hidden>Select Satisfaction level of Food and Drink</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+  <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+            </select>
+        </label>
       </div>
 	  
 	  <div class="form-group">
-        <label for="Location">Gate Location (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="Gate location" placeholder="Satisfaction level of Gate Location" required="required"></label>
+        <label for="Location">
+      <!--  <input type="text" class="form-control" id="ip" name ="Gate location" placeholder="Satisfaction level of Gate Location" required="required">-->
+          <select class="form-control input100"  id="ip" name="Gate location" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px; 
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Satisfaction level of Gate Location</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+  <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+            </select>
+        </label>
       </div>
 	  
 	  <div class="form-group">
-        <label for="wifi">Inflight Wi-Fi Service (Rating from 0-5):
-          <input type="text" class="form-control" id="ip" name ="Inflight wifi service" placeholder="Satisfaction level of Infligt Wi-Fi Service" required="required"></label>
+        <label for="wifi">
+          <select class="form-control input100"  id="ip" name="Infligt Wi-Fi Service" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" > 
+        <option value="" disabled selected hidden>Select Satisfaction level of Infligt Wi-Fi Service</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+            </select>
+        </label>
       </div>
 	  
 	  <div class="form-group">
-        <label for="entertainment">Inflight Entertainment (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="Inflight entertainment" placeholder="Satisfaction level of Inflight Entertainment" required="required"></label>
+        <label for="entertainment">
+      <!--  <input type="text" class="form-control" id="ip" name ="Inflight entertainment" placeholder="Satisfaction level of Inflight Entertainment" required="required">-->
+          <select class="form-control input100"  id="ip" name="Infligt entertainment" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Satisfaction level of Infligt entertainment</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+            </select>
+      </label>
       </div>
 	   
       <div class="form-group" >
-        <label for="Boarding">Online support (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="Online support" placeholder="Satisfaction level of Online support" required="required"></label>
+        <label for="Boarding">
+      <!--  <input type="text" class="form-control" id="ip" name ="Online support" placeholder="Satisfaction level of Online support" required="required">-->
+          <select class="form-control input100"  id="ip" name="Online support" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Satisfaction level of Online support</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+  <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+            </select>
+      </label>
       </div>
 	  
 	  <div class="form-group">
-        <label for="booking">Ease of Online Booking (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="Ease of Online booking" placeholder="Satisfaction level of Online Booking" required="required"></label>
+        <label for="booking">
+      <!--  <input type="text" class="form-control" id="ip" name ="Ease of Online booking" placeholder="Satisfaction level of Online Booking" required="required">-->
+         <select class="form-control input100"  id="ip" name="Ease of Online booking" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Satisfaction level of Online Booking</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+  <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+            </select>
+      </label>
       </div>
 	  
 	  <div class="form-group">
-        <label for="onboard">On-board Service (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="On-board service"placeholder="Satisfaction level of On-board Service" required="required"></label>
+        <label for="onboard">
+       <!-- <input type="text" class="form-control" id="ip" name ="On-board service"placeholder="Satisfaction level of On-board Service" required="required">-->
+        <select class="form-control input100"  id="ip" name="On-board service" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Satisfaction level of On-board service</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+  <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+            </select>
+      </label>
       </div>
 	  
 	  <div class="form-group">
-        <label for="onboard">Leg-room Service (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="Leg room service" placeholder="Satisfaction level of Leg-room Service" required="required"></label>
+        <label for="onboard">
+       <!-- <input type="text" class="form-control" id="ip" name ="Leg room service" placeholder="Satisfaction level of Leg-room Service" required="required">-->
+        <select class="form-control input100"  id="ip" name="Leg-room Service" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Satisfaction level of Leg-room Service </option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+  <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+            </select>
+      </label>
       </div>
 	  
 	  </div>
 	   <div class="column">
 	  
 	   <div class="form-group">
-        <label for="onboard">Baggage Handling (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="Baggage handling" placeholder="Satisfaction level of Baggage Handling" required="required"></label>
+        <label for="onboard">
+      <!--  <input type="text" class="form-control" id="ip" name ="Baggage handling" placeholder="Satisfaction level of Baggage Handling" required="required">-->
+        <select class="form-control input100"  id="ip" name="Baggage Handling" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Satisfaction level of Baggage Handling</option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+  <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+            </select>
+      </label>
       </div>
 	  
 	  <div class="form-group">
-        <label for="onboard">Check-in Service (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="Checkin service" placeholder="Satisfaction level of Check-in Service" required="required"></label>
+        <label for="onboard">
+      <!--  <input type="text" class="form-control" id="ip" name ="Checkin service" placeholder="Satisfaction level of Check-in Service" required="required">-->
+                <select class="form-control input100"  id="ip" name="Checkin service" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Satisfaction level of Check-in Service </option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+  <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+            </select>
+      </label>
       </div>
       
 	  <div class="form-group">
-        <label for="onboard">Cleanliness (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="Cleanliness" placeholder="Satisfaction level of Cleanliness" required="required"></label>
+        <label for="onboard">
+       <!-- <input type="text" class="form-control" id="ip" name ="Cleanliness" placeholder="Satisfaction level of Cleanliness" required="required">-->
+            <select class="form-control input100"  id="ip" name="Cleanliness" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Satisfaction level of Cleanliness </option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+  <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+            </select>
+      </label>
       </div>
 	  
 	  <div class="form-group" >
-        <label for="Boarding">Online boarding (Rating from 0-5):
-        <input type="text" class="form-control" id="ip" name ="Online boarding" placeholder="Satisfaction level of Online boarding" required="required"></label>
+        <label for="Boarding">
+       <!-- <input type="text" class="form-control" id="ip" name ="Online boarding" placeholder="Satisfaction level of Online boarding" required="required">-->
+        <select class="form-control input100"  id="ip" name="Online boarding " 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Satisfaction level of Online boarding  </option>
+    <option value="0">0</option>
+    <option value="1">1</option>
+  <option value="2">2</option>
+    <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+            </select>
+      </label>
       </div>
 	  
 	  <div class="form-group">
-        <label for="onboard">Departure delay in Minutes:
+        <label for="onboard">
         <input type="text" class="form-control" id="ip" name ="Departure Delay in Minutes" placeholder="Minutes delayed when Departure" required="required"></label>
       </div>
 	  
       <div class="form-group">
-        <label for="onboard">Arrival delay in Minutes:
+        <label for="onboard">
         <input type="text" class="form-control" id="ip" name ="Arrival Delay in Minutes" placeholder="Minutes delayed when Arrival" required="required"></label>
       </div>
 	  
     <div class="form-group">
-        <label for="Gender">Gender [Male - 1, Female - 0]:
-        <input type="text" class="form-control" id="ip" name ="Gender" placeholder="Gender of the flight of passengers" required="required"></label>
+        <label for="Gender">
+        <!--<input type="text" class="form-control" id="ip" name ="Gender" placeholder="Gender of the flight of passengers" required="required">-->
+        <select class="form-control input100"  id="ip" name="Gender" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Gender  </option>
+    <option value="0">Female</option>
+    <option value="1">Male</option>
+        </select>
+      </label>
       </div>
 	  
     <div class="form-group">
-        <label for="Age">Customer type [Loyal customer - 0, Disloyal customer - 1]:
-        <input type="text" class="form-control" id="ip" name ="Customer type" placeholder="The Customer Type" required="required"></label>
+        <label for="Age">
+       <!-- <input type="text" class="form-control" id="ip" name ="Customer type" placeholder="The Customer Type" required="required">-->
+         <select class="form-control input100"  id="ip" name="Customer type" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Satisfaction level of Customer type</option>
+    <option value="0">Loyal customer</option>
+    <option value="1">Disloyal customer</option>
+        </select>
+      </label>
       </div>
       
     <div class="form-group">
-        <label for="Travel">Type of Travel [Personal Travel - 1, Business Travel - 0]:
-        <input type="text" class="form-control" id="ip" name="Type of Travel" placeholder="Purpose of the flight of passengers" required="required"></label>
+        <label for="Travel">
+       <!-- <input type="text" class="form-control" id="ip" name="Type of Travel" placeholder="Purpose of the flight of passengers" required="required">-->
+        <select class="form-control input100"  id="ip" name="Type of Travel" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Type of Travel</option>
+    <option value="1">Personal Travel</option>
+    <option value="0">Business Travel</option>
+        </select>
+      </label>
       </div>
     
 	<div class="form-group">
-        <label for="Class">Class [Economy class - 1,Business class - 0]:
-        <input type="text" class="form-control" id="ip" name ="Class" placeholder="Travel class in the plane of the passengers" required="required"></label>
+        <label for="Class">
+        <!--<input type="text" class="form-control" id="ip" name ="Class" placeholder="Travel class in the plane of the passengers" required="required">-->
+        <select class="form-control input100"  id="ip" name="Class" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Class</option>
+    <option value="1">Economy class</option>
+    <option value="0">Business class</option>
+        </select>
+      </label>
     </div>
 	
 	<div class="form-group">
-        <label for="Class">Class_Ecoplus [Economy_plus - 1, Business class - 0]:
-        <input type="text" class="form-control" id="ip" name ="Class_Ecoplus" placeholder="Travel class in the plane of the passengers" required="required"></label>
+        <label for="Class">
+      <!--  <input type="text" class="form-control" id="ip" name ="Class_Ecoplus" placeholder="Travel class in the plane of the passengers" required="required">-->
+        <select class="form-control input100"  id="ip" name="Class_Ecoplus" 
+          style="padding: 10px 5px;margin-top,margin-bottom: 15px;
+          border: 2px solid #d9d9d9;" required="required" >  
+        <option value="" disabled selected hidden>Select Class_Ecoplus</option>
+    <option value="1">Economy_plus</option>
+    <option value="0">Business class</option>
+        </select>
+      </label>
     </div>
-     
-    
-	  
-	  
- 
-      
-      
-            
     </div>
   
 </div>
